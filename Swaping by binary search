@@ -1,0 +1,45 @@
+#include <stdio.h>
+#define SIZE 15
+int b_search(int a[],int key,int l,int h)
+{
+    int m;
+    while(l<=h)
+    {
+        m = (l+h)/2;
+        if(key==a[m])
+            return m;
+        else if(key<a[m])
+            h = m-1;
+        else
+            l = m+1;
+    }
+    return -1;
+}
+
+
+
+int main( void )
+{
+int a[ SIZE ];
+size_t i;
+int key;
+int result;
+
+for ( i = 0; i < SIZE; ++i ) {
+ a[ i ] = 2 * i;
+}
+
+ printf( "%s", "Enter a number between 0 and 28: " );
+ scanf( "%d", &key );
+
+
+
+ result = b_search( a, key, 0, SIZE - 1 );
+
+ if ( result != -1 ) {
+ printf( "\n%d found in array element %d\n", key, result );
+ }
+ else {
+ printf( "\n%d not found\n", key );
+ }
+ }
